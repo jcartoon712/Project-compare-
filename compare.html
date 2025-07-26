@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Compare - Compare Cars</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <img src="https://via.placeholder.com/60x60/FF6B35/FFFFFF?text=AC" alt="Auto Compare Logo" class="logo">
+            <h1>Auto Compare</h1>
+        </div>
+        <nav class="navigation">
+            <a href="home.html" class="nav-link">Home</a>
+            <a href="compare.html" class="nav-link active">Compare</a>
+            <a href="favourites.html" class="nav-link">Favourites</a>
+            <a href="feedback.html" class="nav-link">Feedback</a>
+            <a href="login.html" class="nav-link logout">Logout</a>
+        </nav>
+    </header>
+
+    <main class="compare-main">
+        <h2>Compare Cars</h2>
+        <div class="compare-container">
+            <div class="car-selection" id="car1">
+                <h3>Car 1</h3>
+                <div class="selection-controls">
+                    <div class="dropdown-container">
+                        <label for="brand1">Search by Brand:</label>
+                        <select id="brand1" onchange="updateModels(1)">
+                            <option value="">Select Brand</option>
+                        </select>
+                        <input type="text" id="brandSearch1" placeholder="Search brand..." oninput="searchBrand(1)">
+                        <div id="brandError1" class="error-message"></div>
+                    </div>
+                    
+                    <div class="dropdown-container">
+                        <label for="model1">Search Model:</label>
+                        <select id="model1" onchange="displayCarDetails(1)">
+                            <option value="">Select Model</option>
+                        </select>
+                        <input type="text" id="modelSearch1" placeholder="Search model..." oninput="searchModel(1)">
+                        <div id="modelError1" class="error-message"></div>
+                    </div>
+                </div>
+                
+                <div id="carDisplay1" class="car-display">
+                    <p>Select a car to view details</p>
+                </div>
+            </div>
+
+            <div class="vs-divider">VS</div>
+
+            <div class="car-selection" id="car2">
+                <h3>Car 2</h3>
+                <div class="selection-controls">
+                    <div class="dropdown-container">
+                        <label for="brand2">Search by Brand:</label>
+                        <select id="brand2" onchange="updateModels(2)">
+                            <option value="">Select Brand</option>
+                        </select>
+                        <input type="text" id="brandSearch2" placeholder="Search brand..." oninput="searchBrand(2)">
+                        <div id="brandError2" class="error-message"></div>
+                    </div>
+                    
+                    <div class="dropdown-container">
+                        <label for="model2">Search Model:</label>
+                        <select id="model2" onchange="displayCarDetails(2)">
+                            <option value="">Select Model</option>
+                        </select>
+                        <input type="text" id="modelSearch2" placeholder="Search model..." oninput="searchModel(2)">
+                        <div id="modelError2" class="error-message"></div>
+                    </div>
+                </div>
+                
+                <div id="carDisplay2" class="car-display">
+                    <p>Select a car to view details</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="comparisonResult" class="comparison-result" style="display: none;">
+            <h3>Comparison Results</h3>
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th id="car1Name">Car 1</th>
+                            <th id="car2Name">Car 2</th>
+                        </tr>
+                    </thead>
+                    <tbody id="comparisonTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="carData.js"></script>
+</body>
+</html>
