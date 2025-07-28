@@ -5,10 +5,13 @@ A comprehensive car comparison website that allows users to compare cars by mile
 ## Features
 
 ### 🔐 **Login Page**
-- Clean login form with car background
-- Forgotten password feature
-- Create new account option
-- Responsive design with glassmorphism effect
+- Professional animated login form with car-themed background
+- Animated car elements moving across the screen
+- Floating car-related icons and particles
+- Forgotten password feature with smooth transitions
+- Create new account option with enhanced UI
+- Modern glassmorphism design with gradient backgrounds
+- Input fields with animated icons and underlines
 
 ### 🏠 **Home Page**
 - Auto-sliding background image carousel
@@ -20,15 +23,20 @@ A comprehensive car comparison website that allows users to compare cars by mile
 - Side-by-side car comparison
 - Brand and model dropdowns with search functionality
 - Real-time error handling for invalid searches
-- Detailed specifications display
+- Interactive image galleries with 4 views per car (Exterior, Interior, Side View, Dashboard)
+- Thumbnail navigation with image labels
+- Detailed specifications display with Indian pricing (₹)
 - Add to favourites functionality
-- Visual comparison highlighting better features
+- Visual comparison highlighting better features with color coding
+- Support for different fuel types and mileage units
 
 ### ❤️ **Favourites Page**
-- Displays saved favourite cars
+- Displays saved favourite cars with image galleries
+- Interactive thumbnail navigation for each car
 - Remove from favourites option
 - Empty state message when no favourites
 - Grid layout for easy browsing
+- Smooth animations and hover effects
 
 ### 📝 **Feedback Page**
 - Interactive star rating system
@@ -36,31 +44,26 @@ A comprehensive car comparison website that allows users to compare cars by mile
 - "Is our website useful?" question
 - Thank you message with auto-refresh
 
-## 🚗 **Car Database**
+## 🚗 **Indian Car Database**
 
-The website includes an extensive database of major car brands and models:
+The website includes an extensive database of popular Indian car brands and models:
 
-- **Toyota**: Camry, Corolla, Prius, RAV4
-- **Honda**: Civic, Accord, CR-V, Pilot
-- **Ford**: F-150, Mustang, Explorer, Focus
-- **BMW**: 3 Series, 5 Series, X3, X5
-- **Mercedes-Benz**: C-Class, E-Class, GLC, S-Class
-- **Audi**: A4, A6, Q5, Q7
-- **Chevrolet**: Silverado, Malibu, Equinox, Tahoe
-- **Nissan**: Altima, Sentra, Rogue, Pathfinder
-- **Hyundai**: Elantra, Sonata, Tucson, Santa Fe
-- **Kia**: Forte, Optima, Sportage, Sorento
-- **Volkswagen**: Jetta, Passat, Tiguan, Atlas
-- **Subaru**: Impreza, Legacy, Outback, Forester
+- **Maruti Suzuki**: Swift, Baleno, Vitara Brezza, Ertiga
+- **Hyundai**: i20, Creta, Verna, Venue
+- **Tata Motors**: Nexon, Altroz, Harrier, Safari
+- **Mahindra**: XUV700, Scorpio-N, Thar, Bolero
+- **Kia**: Seltos, Sonet, Carens, EV6
+- **Honda**: City, Amaze, Elevate, City Hybrid
+- **Toyota**: Innova Crysta, Fortuner, Glanza, Urban Cruiser Hyryder
 
 Each car includes:
-- Mileage (MPG)
+- Mileage (KMPL/Range for EVs)
 - Engine capacity
-- Fuel type
+- Fuel type (Petrol/Diesel/Hybrid/Electric)
 - Number of seats
-- Price
-- High-quality images
-- Key features list
+- Price in Indian Rupees (₹)
+- 4 high-quality images (Exterior, Interior, Side View, Dashboard)
+- Indian-specific features list
 
 ## 🛠️ **Technical Features**
 

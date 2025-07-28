@@ -7,62 +7,151 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body class="login-body">
+    <!-- Animated Background Elements -->
+    <div class="animated-background">
+        <div class="car-animation car1"></div>
+        <div class="car-animation car2"></div>
+        <div class="car-animation car3"></div>
+        <div class="road-lines">
+            <div class="road-line"></div>
+            <div class="road-line"></div>
+            <div class="road-line"></div>
+            <div class="road-line"></div>
+            <div class="road-line"></div>
+        </div>
+        <div class="floating-elements">
+            <div class="floating-element steering-wheel">🚗</div>
+            <div class="floating-element gear">⚙️</div>
+            <div class="floating-element speedometer">🏎️</div>
+            <div class="floating-element key">🔑</div>
+        </div>
+    </div>
+
+    <!-- Login Container -->
     <div class="login-container">
+        <div class="login-header">
+            <div class="logo-wrapper">
+                <div class="logo-animation">
+                    <img src="https://via.placeholder.com/80x80/FF6B35/FFFFFF?text=AC" alt="Auto Compare Logo" class="animated-logo">
+                </div>
+                <h1 class="brand-name">Auto Compare</h1>
+                <p class="tagline">Your Ultimate Car Comparison Platform</p>
+            </div>
+        </div>
+
         <div class="login-form" id="loginForm">
-            <h2>Auto Compare</h2>
-            <h3>Login to your account</h3>
+            <h3>Welcome Back</h3>
+            <p class="login-subtitle">Login to explore and compare amazing cars</p>
             <form>
                 <div class="input-group">
-                    <input type="email" placeholder="Email" required>
+                    <div class="input-wrapper">
+                        <span class="input-icon">📧</span>
+                        <input type="email" placeholder="Enter your email" required>
+                        <div class="input-underline"></div>
+                    </div>
                 </div>
                 <div class="input-group">
-                    <input type="password" placeholder="Password" required>
+                    <div class="input-wrapper">
+                        <span class="input-icon">🔒</span>
+                        <input type="password" placeholder="Enter your password" required>
+                        <div class="input-underline"></div>
+                    </div>
                 </div>
-                <button type="submit" class="login-btn" onclick="login()">Login</button>
+                <button type="submit" class="login-btn" onclick="login()">
+                    <span>Login</span>
+                    <div class="btn-animation"></div>
+                </button>
             </form>
             <div class="login-links">
-                <a href="#" onclick="showForgotPassword()">Forgotten Password?</a>
-                <a href="#" onclick="showCreateAccount()">Don't have an account? Create one</a>
+                <a href="#" onclick="showForgotPassword()" class="link-animated">
+                    <span>🔄</span>Forgotten Password?
+                </a>
+                <a href="#" onclick="showCreateAccount()" class="link-animated">
+                    <span>✨</span>Don't have an account? Create one
+                </a>
             </div>
         </div>
 
         <div class="forgot-password-form" id="forgotPasswordForm" style="display: none;">
-            <h2>Auto Compare</h2>
             <h3>Reset Password</h3>
+            <p class="login-subtitle">Enter your email to receive reset instructions</p>
             <form>
                 <div class="input-group">
-                    <input type="email" placeholder="Enter your email" required>
+                    <div class="input-wrapper">
+                        <span class="input-icon">📧</span>
+                        <input type="email" placeholder="Enter your email address" required>
+                        <div class="input-underline"></div>
+                    </div>
                 </div>
-                <button type="submit" class="login-btn">Send Reset Link</button>
+                <button type="submit" class="login-btn">
+                    <span>Send Reset Link</span>
+                    <div class="btn-animation"></div>
+                </button>
             </form>
             <div class="login-links">
-                <a href="#" onclick="showLogin()">Back to Login</a>
+                <a href="#" onclick="showLogin()" class="link-animated">
+                    <span>⬅️</span>Back to Login
+                </a>
             </div>
         </div>
 
         <div class="create-account-form" id="createAccountForm" style="display: none;">
-            <h2>Auto Compare</h2>
-            <h3>Create Account</h3>
+            <h3>Join Auto Compare</h3>
+            <p class="login-subtitle">Create your account to start comparing cars</p>
             <form>
                 <div class="input-group">
-                    <input type="text" placeholder="Full Name" required>
+                    <div class="input-wrapper">
+                        <span class="input-icon">👤</span>
+                        <input type="text" placeholder="Full Name" required>
+                        <div class="input-underline"></div>
+                    </div>
                 </div>
                 <div class="input-group">
-                    <input type="email" placeholder="Email" required>
+                    <div class="input-wrapper">
+                        <span class="input-icon">📧</span>
+                        <input type="email" placeholder="Email Address" required>
+                        <div class="input-underline"></div>
+                    </div>
                 </div>
                 <div class="input-group">
-                    <input type="password" placeholder="Password" required>
+                    <div class="input-wrapper">
+                        <span class="input-icon">🔒</span>
+                        <input type="password" placeholder="Create Password" required>
+                        <div class="input-underline"></div>
+                    </div>
                 </div>
                 <div class="input-group">
-                    <input type="password" placeholder="Confirm Password" required>
+                    <div class="input-wrapper">
+                        <span class="input-icon">🔐</span>
+                        <input type="password" placeholder="Confirm Password" required>
+                        <div class="input-underline"></div>
+                    </div>
                 </div>
-                <button type="submit" class="login-btn">Create Account</button>
+                <button type="submit" class="login-btn">
+                    <span>Create Account</span>
+                    <div class="btn-animation"></div>
+                </button>
             </form>
             <div class="login-links">
-                <a href="#" onclick="showLogin()">Already have an account? Login</a>
+                <a href="#" onclick="showLogin()" class="link-animated">
+                    <span>⬅️</span>Already have an account? Login
+                </a>
             </div>
         </div>
     </div>
+
+    <!-- Particles Effect -->
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>

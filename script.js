@@ -208,9 +208,33 @@ function displayCarDetails(carNumber) {
         
         const isInFavourites = isCarInFavourites(brandSelect.value, modelSelect.value);
         
+        // Create image gallery with multiple views
+        const imageGallery = carDetails.images.map((image, index) => 
+            `<img src="${image}" alt="${brandSelect.value} ${modelSelect.value} - View ${index + 1}" 
+                  class="car-gallery-image ${index === 0 ? 'active' : ''}" 
+                  onclick="setActiveImage(${carNumber}, ${index})" loading="lazy">`
+        ).join('');
+        
+        const imageThumbnails = carDetails.images.map((image, index) => 
+            `<div class="thumbnail ${index === 0 ? 'active' : ''}" onclick="setActiveImage(${carNumber}, ${index})">
+                <img src="${image}" alt="Thumbnail ${index + 1}" loading="lazy">
+                <span class="thumbnail-label">${getImageLabel(index)}</span>
+             </div>`
+        ).join('');
+        
         carDisplay.innerHTML = `
             <div class="car-info">
-                <img src="${carDetails.images[0]}" alt="${brandSelect.value} ${modelSelect.value}" loading="lazy">
+                <div class="car-image-gallery" id="gallery${carNumber}">
+                    <div class="main-image-container">
+                        ${imageGallery}
+                        <div class="image-counter">
+                            <span id="imageCounter${carNumber}">1</span> / ${carDetails.images.length}
+                        </div>
+                    </div>
+                    <div class="image-thumbnails">
+                        ${imageThumbnails}
+                    </div>
+                </div>
                 <h4>${brandSelect.value} ${modelSelect.value}</h4>
                 <ul class="car-specs">
                     <li><strong>Mileage:</strong> ${carDetails.mileage}</li>
@@ -221,7 +245,7 @@ function displayCarDetails(carNumber) {
                 </ul>
                 <div>
                     <strong>Features:</strong>
-                    <ul>
+                    <ul class="features-list">
                         ${carDetails.features.map(feature => `<li>${feature}</li>`).join('')}
                     </ul>
                 </div>
@@ -233,6 +257,34 @@ function displayCarDetails(carNumber) {
         `;
         
         updateComparison();
+    }
+}
+
+function getImageLabel(index) {
+    const labels = ['Exterior', 'Interior', 'Side View', 'Dashboard'];
+    return labels[index] || `View ${index + 1}`;
+}
+
+function setActiveImage(carNumber, imageIndex) {
+    const gallery = document.getElementById(`gallery${carNumber}`);
+    if (!gallery) return;
+    
+    // Update main images
+    const images = gallery.querySelectorAll('.car-gallery-image');
+    const thumbnails = gallery.querySelectorAll('.thumbnail');
+    
+    images.forEach((img, index) => {
+        img.classList.toggle('active', index === imageIndex);
+    });
+    
+    thumbnails.forEach((thumb, index) => {
+        thumb.classList.toggle('active', index === imageIndex);
+    });
+    
+    // Update counter
+    const counter = document.getElementById(`imageCounter${carNumber}`);
+    if (counter) {
+        counter.textContent = imageIndex + 1;
     }
 }
 
@@ -279,14 +331,28 @@ function updateComparison() {
 }
 
 function compareMileage(mileage1, mileage2) {
-    const num1 = parseFloat(mileage1.match(/(\d+)/)[1]);
-    const num2 = parseFloat(mileage2.match(/(\d+)/)[1]);
+    // Handle both mpg and kmpl, and range for electric vehicles
+    const extractNumber = (mileage) => {
+        if (mileage.includes('range')) {
+            return parseFloat(mileage.match(/(\d+)/)[1]) / 10; // Normalize range to comparable scale
+        }
+        return parseFloat(mileage.match(/(\d+)/)[1]);
+    };
+    
+    const num1 = extractNumber(mileage1);
+    const num2 = extractNumber(mileage2);
     return num1 - num2;
 }
 
 function comparePrice(price1, price2) {
-    const num1 = parseFloat(price1.replace(/[$,]/g, ''));
-    const num2 = parseFloat(price2.replace(/[$,]/g, ''));
+    // Handle Indian currency (₹) and US currency ($)
+    const extractPrice = (price) => {
+        // Remove currency symbols and commas, convert to number
+        return parseFloat(price.replace(/[₹$,]/g, ''));
+    };
+    
+    const num1 = extractPrice(price1);
+    const num2 = extractPrice(price2);
     return num1 - num2;
 }
 
@@ -334,9 +400,27 @@ function loadFavourites() {
         favouritesList.style.display = 'grid';
         noFavourites.style.display = 'none';
         
-        favouritesList.innerHTML = favourites.map(car => `
+        favouritesList.innerHTML = favourites.map((car, index) => {
+            const imageThumbnails = car.images.slice(0, 3).map((image, imgIndex) => 
+                `<div class="fav-thumbnail" onclick="setActiveFavImage(${index}, ${imgIndex})">
+                    <img src="${image}" alt="${getImageLabel(imgIndex)}" loading="lazy">
+                 </div>`
+            ).join('');
+            
+            return `
             <div class="favourite-car">
-                <img src="${car.images[0]}" alt="${car.brand} ${car.model}" loading="lazy">
+                <div class="fav-image-gallery" id="favGallery${index}">
+                    <div class="fav-main-image">
+                        ${car.images.map((image, imgIndex) => 
+                            `<img src="${image}" alt="${car.brand} ${car.model}" 
+                                  class="fav-gallery-image ${imgIndex === 0 ? 'active' : ''}" loading="lazy">`
+                        ).join('')}
+                    </div>
+                    <div class="fav-thumbnails">
+                        ${imageThumbnails}
+                        ${car.images.length > 3 ? `<div class="more-images">+${car.images.length - 3}</div>` : ''}
+                    </div>
+                </div>
                 <h4>${car.brand} ${car.model}</h4>
                 <ul class="car-specs">
                     <li><strong>Mileage:</strong> ${car.mileage}</li>
@@ -349,7 +433,7 @@ function loadFavourites() {
                     Remove from Favourites
                 </button>
             </div>
-        `).join('');
+        `}).join('');
     }
 }
 
@@ -357,6 +441,22 @@ function removeFavourite(brand, model) {
     favourites = favourites.filter(car => !(car.brand === brand && car.model === model));
     localStorage.setItem('favourites', JSON.stringify(favourites));
     loadFavourites();
+}
+
+function setActiveFavImage(carIndex, imageIndex) {
+    const gallery = document.getElementById(`favGallery${carIndex}`);
+    if (!gallery) return;
+    
+    const images = gallery.querySelectorAll('.fav-gallery-image');
+    const thumbnails = gallery.querySelectorAll('.fav-thumbnail');
+    
+    images.forEach((img, index) => {
+        img.classList.toggle('active', index === imageIndex);
+    });
+    
+    thumbnails.forEach((thumb, index) => {
+        thumb.classList.toggle('active', index === imageIndex);
+    });
 }
 
 // Feedback page functionality
