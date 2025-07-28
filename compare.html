@@ -22,79 +22,114 @@
     </header>
 
     <main class="compare-main">
-        <h2>Compare Cars</h2>
+        <div class="compare-header">
+            <h2>Professional Car Comparison</h2>
+            <p class="compare-subtitle">Compare cars across all features to make the perfect choice</p>
+        </div>
+
         <div class="compare-container">
             <div class="car-selection" id="car1">
-                <h3>Car 1</h3>
+                <div class="selection-header">
+                    <h3><span class="car-number">1</span>Select First Car</h3>
+                </div>
+                
                 <div class="selection-controls">
                     <div class="dropdown-container">
-                        <label for="brand1">Search by Brand:</label>
-                        <select id="brand1" onchange="updateModels(1)">
-                            <option value="">Select Brand</option>
+                        <label for="brand1">
+                            <span class="label-icon">🏢</span>Brand
+                        </label>
+                        <select id="brand1" onchange="updateModels(1)" class="professional-select">
+                            <option value="">Choose Brand</option>
                         </select>
-                        <input type="text" id="brandSearch1" placeholder="Search brand..." oninput="searchBrand(1)">
-                        <div id="brandError1" class="error-message"></div>
                     </div>
                     
                     <div class="dropdown-container">
-                        <label for="model1">Search Model:</label>
-                        <select id="model1" onchange="displayCarDetails(1)">
-                            <option value="">Select Model</option>
+                        <label for="model1">
+                            <span class="label-icon">🚗</span>Model
+                        </label>
+                        <select id="model1" onchange="displayCarDetails(1)" class="professional-select" disabled>
+                            <option value="">Choose Model</option>
                         </select>
-                        <input type="text" id="modelSearch1" placeholder="Search model..." oninput="searchModel(1)">
-                        <div id="modelError1" class="error-message"></div>
                     </div>
                 </div>
                 
                 <div id="carDisplay1" class="car-display">
-                    <p>Select a car to view details</p>
+                    <div class="empty-state">
+                        <div class="empty-icon">🚗</div>
+                        <p>Select a car to view detailed specifications</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="vs-divider">VS</div>
+            <div class="vs-divider">
+                <div class="vs-circle">
+                    <span>VS</span>
+                </div>
+                <div class="vs-line"></div>
+            </div>
 
             <div class="car-selection" id="car2">
-                <h3>Car 2</h3>
+                <div class="selection-header">
+                    <h3><span class="car-number">2</span>Select Second Car</h3>
+                </div>
+                
                 <div class="selection-controls">
                     <div class="dropdown-container">
-                        <label for="brand2">Search by Brand:</label>
-                        <select id="brand2" onchange="updateModels(2)">
-                            <option value="">Select Brand</option>
+                        <label for="brand2">
+                            <span class="label-icon">🏢</span>Brand
+                        </label>
+                        <select id="brand2" onchange="updateModels(2)" class="professional-select">
+                            <option value="">Choose Brand</option>
                         </select>
-                        <input type="text" id="brandSearch2" placeholder="Search brand..." oninput="searchBrand(2)">
-                        <div id="brandError2" class="error-message"></div>
                     </div>
                     
                     <div class="dropdown-container">
-                        <label for="model2">Search Model:</label>
-                        <select id="model2" onchange="displayCarDetails(2)">
-                            <option value="">Select Model</option>
+                        <label for="model2">
+                            <span class="label-icon">🚗</span>Model
+                        </label>
+                        <select id="model2" onchange="displayCarDetails(2)" class="professional-select" disabled>
+                            <option value="">Choose Model</option>
                         </select>
-                        <input type="text" id="modelSearch2" placeholder="Search model..." oninput="searchModel(2)">
-                        <div id="modelError2" class="error-message"></div>
                     </div>
                 </div>
                 
                 <div id="carDisplay2" class="car-display">
-                    <p>Select a car to view details</p>
+                    <div class="empty-state">
+                        <div class="empty-icon">🚗</div>
+                        <p>Select a car to view detailed specifications</p>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div id="comparisonResult" class="comparison-result" style="display: none;">
-            <h3>Comparison Results</h3>
-            <div class="comparison-table">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Feature</th>
-                            <th id="car1Name">Car 1</th>
-                            <th id="car2Name">Car 2</th>
-                        </tr>
-                    </thead>
-                    <tbody id="comparisonTableBody">
-                    </tbody>
-                </table>
+            <div class="comparison-header">
+                <h3>📊 Detailed Comparison Results</h3>
+                <p>Comprehensive analysis of all features and specifications</p>
+            </div>
+            
+            <div class="comparison-content">
+                <div class="comparison-summary">
+                    <div class="summary-card winner" id="winnerCard" style="display: none;">
+                        <div class="summary-icon">🏆</div>
+                        <h4>Overall Winner</h4>
+                        <p id="winnerText"></p>
+                    </div>
+                </div>
+
+                <div class="comparison-table-container">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th class="feature-column">Feature</th>
+                                <th id="car1Name" class="car-column">Car 1</th>
+                                <th id="car2Name" class="car-column">Car 2</th>
+                            </tr>
+                        </thead>
+                        <tbody id="comparisonTableBody">
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </main>
