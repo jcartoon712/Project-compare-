@@ -1,4 +1,4 @@
-// Comprehensive Indian Car Database - All Fuel Types
+// Comprehensive Indian Car Database - All Fuel Types with Specific Car Images
 const carData = {
     "Maruti Suzuki": {
         "Swift": {
@@ -17,10 +17,10 @@ const carData = {
             airConditioning: "Manual",
             musicSystem: "Yes",
             images: [
-                "https://images.unsplash.com/photo-1583121274602-3e2820c69888?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                "https://images.unsplash.com/photo-1542280756-74b2f55e73ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                "https://images.unsplash.com/photo-1580414187952-0c3d47d7b86a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/swift-exterior-right-front-three-quarter-2.jpeg",
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/swift-exterior-left-side-view-2.jpeg",
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/swift-exterior-rear-view-2.jpeg",
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/swift-interior-dashboard-2.jpeg"
             ],
             features: ["SmartPlay Infotainment", "Auto AC", "ABS with EBD", "Dual Airbags", "Reverse Parking Sensors", "Central Locking", "Power Steering"]
         },
@@ -40,10 +40,10 @@ const carData = {
             airConditioning: "Automatic",
             musicSystem: "Yes",
             images: [
-                "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                "https://images.unsplash.com/photo-1449965045629-4c0ff93b3fec?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                "https://images.unsplash.com/photo-1502877338535-766e1452684a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                "https://images.unsplash.com/photo-1586479767456-93e7276ae8a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/baleno-exterior-right-front-three-quarter-2.jpeg",
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/baleno-exterior-left-side-view-2.jpeg",
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/baleno-exterior-rear-view-2.jpeg",
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/baleno-interior-dashboard-2.jpeg"
             ],
             features: ["SmartPlay Studio", "UV Cut Glass", "Height Adjustable Driver Seat", "Keyless Entry", "Push Button Start", "LED Headlamps", "Cruise Control"]
         },
@@ -63,10 +63,10 @@ const carData = {
             airConditioning: "Automatic",
             musicSystem: "Yes",
             images: [
-                "https://images.unsplash.com/photo-1566473965997-3de9c817e938?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                "https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                "https://images.unsplash.com/photo-1558618666-fcde9ab21d41?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/vitara-brezza-exterior-right-front-three-quarter-2.jpeg",
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/vitara-brezza-exterior-left-side-view-2.jpeg",
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/vitara-brezza-exterior-rear-view-2.jpeg",
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/vitara-brezza-interior-dashboard-2.jpeg"
             ],
             features: ["ESP with Hill Hold", "Cruise Control", "Auto Headlamps", "Rain Sensing Wipers", "360° View Camera", "Sunroof", "Wireless Charging"]
         },
@@ -401,13 +401,13 @@ const carData = {
     },
     "Kia": {
         "Seltos": {
-            mileage: "17 kmpl",
-            engineCapacity: "1.5L Petrol",
-            fuelType: "Petrol",
+            mileage: "16 kmpl",
+            engineCapacity: "1.5L Petrol/1.5L Diesel",
+            fuelType: "Petrol/Diesel",
             seats: 5,
-            price: "₹10,90,000",
-            safetyRating: "3 Star",
-            transmission: "Manual/CVT/DCT",
+            price: "₹10,89,000",
+            safetyRating: "4 Star",
+            transmission: "Manual/CVT/AT",
             groundClearance: "190mm",
             bootSpace: "433L",
             fuelTankCapacity: "50L",
@@ -416,12 +416,12 @@ const carData = {
             airConditioning: "Automatic",
             musicSystem: "Yes",
             images: [
-                "https://images.unsplash.com/photo-1566473965997-3de9c817e938?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                "https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                "https://images.unsplash.com/photo-1558618666-fcde9ab21d41?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/seltos-exterior-right-front-three-quarter-2.jpeg",
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/seltos-exterior-left-side-view-2.jpeg",
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/seltos-exterior-rear-view-2.jpeg",
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/seltos-interior-dashboard-2.jpeg"
             ],
-            features: ["UVO Connect", "10.25-inch HD Touchscreen", "Bose Premium Audio", "360° Around View Monitor", "Ventilated Seats", "Sunroof", "Wireless Charging"]
+            features: ["UVO Connected Car", "Bose Premium Sound", "Ventilated Seats", "Panoramic Sunroof", "360° Camera", "Wireless Charging", "Smart Pure Air Purifier"]
         },
         "Sonet": {
             mileage: "18 kmpl",
@@ -447,37 +447,37 @@ const carData = {
             features: ["UVO Connect", "10.25-inch Smart Pure Touchscreen", "Bose Premium Audio", "Air Purifier", "Smart Pure Air Purifier", "Sunroof"]
         },
         "EV6": {
-            mileage: "528 km range",
+            mileage: "708 km/charge",
             engineCapacity: "Electric Motor",
             fuelType: "Electric",
             seats: 5,
             price: "₹60,95,000",
             safetyRating: "5 Star",
-            transmission: "Automatic",
-            groundClearance: "178mm",
-            bootSpace: "520L",
-            fuelTankCapacity: "77.4 kWh Battery",
+            transmission: "Single Speed",
+            groundClearance: "160mm",
+            bootSpace: "480L",
+            fuelTankCapacity: "77.4 kWh",
             powerSteering: "Yes",
             powerWindows: "Yes",
-            airConditioning: "Dual Zone",
+            airConditioning: "Automatic",
             musicSystem: "Yes",
             images: [
-                "https://images.unsplash.com/photo-1593941707882-a5bac6861d75?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                "https://images.unsplash.com/photo-1580414187952-0c3d47d7b86a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/ev6-exterior-right-front-three-quarter-2.jpeg",
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/ev6-exterior-left-side-view-2.jpeg",
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/ev6-exterior-rear-view-2.jpeg",
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/ev6-interior-dashboard-2.jpeg"
             ],
-            features: ["Ultra-Fast Charging", "528km Range", "AWD", "12.3-inch Curved Display", "Vehicle-to-Load Capability", "Highway Driving Assist 2", "Relaxation Seats"]
+            features: ["V2L (Vehicle to Load)", "800V Fast Charging", "Regenerative Braking", "Connected Car Tech", "Over-the-air Updates", "Eco Mode", "Smart Cruise Control"]
         }
     },
     "Honda": {
         "City": {
-            mileage: "17 kmpl",
+            mileage: "18 kmpl",
             engineCapacity: "1.5L Petrol",
             fuelType: "Petrol",
             seats: 5,
-            price: "₹11,56,000",
-            safetyRating: "5 Star",
+            price: "₹11,49,000",
+            safetyRating: "4 Star",
             transmission: "Manual/CVT",
             groundClearance: "165mm",
             bootSpace: "506L",
@@ -487,12 +487,12 @@ const carData = {
             airConditioning: "Automatic",
             musicSystem: "Yes",
             images: [
-                "https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                "https://images.unsplash.com/photo-1549317336-206569e8475c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                "https://images.unsplash.com/photo-1586479767456-93e7276ae8a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/city-exterior-right-front-three-quarter-2.jpeg",
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/city-exterior-left-side-view-2.jpeg",
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/city-exterior-rear-view-2.jpeg",
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/city-interior-dashboard-2.jpeg"
             ],
-            features: ["Honda SENSING", "8-inch Touchscreen", "Alexa Remote Capability", "Honda Connect", "Lane Watch Camera", "Sunroof", "Wireless Charging"]
+            features: ["Honda Connect", "LaneWatch Camera", "Eco Assist System", "Ventilated Seats", "Wireless Charging", "Connected Car Tech", "Voice Commands"]
         },
         "City Hybrid": {
             mileage: "27 kmpl",
@@ -519,10 +519,10 @@ const carData = {
         },
         "Amaze": {
             mileage: "18 kmpl",
-            engineCapacity: "1.2L Petrol",
-            fuelType: "Petrol",
+            engineCapacity: "1.2L Petrol/1.5L Diesel",
+            fuelType: "Petrol/Diesel",
             seats: 5,
-            price: "₹6,33,000",
+            price: "₹6,32,000",
             safetyRating: "4 Star",
             transmission: "Manual/CVT",
             groundClearance: "165mm",
@@ -533,12 +533,12 @@ const carData = {
             airConditioning: "Manual",
             musicSystem: "Yes",
             images: [
-                "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                "https://images.unsplash.com/photo-1580414187952-0c3d47d7b86a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/amaze-exterior-right-front-three-quarter-2.jpeg",
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/amaze-exterior-left-side-view-2.jpeg",
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/amaze-exterior-rear-view-2.jpeg",
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/amaze-interior-dashboard-2.jpeg"
             ],
-            features: ["Honda SENSING", "7-inch Touchscreen", "Auto AC", "Rear Parking Camera", "Height Adjustable Driver Seat", "Dual Airbags"]
+            features: ["Dual Airbags", "ABS with EBD", "ISOFIX Child Seat Anchors", "Central Locking", "Power Steering", "Music System", "Air Conditioning"]
         },
         "Jazz": {
             mileage: "17 kmpl",
@@ -566,50 +566,50 @@ const carData = {
     },
     "MG Motor": {
         "Hector": {
-            mileage: "14 kmpl",
-            engineCapacity: "1.5L Turbo Petrol",
-            fuelType: "Petrol",
-            seats: 5,
-            price: "₹15,13,000",
-            safetyRating: "5 Star",
+            mileage: "16 kmpl",
+            engineCapacity: "1.5L Petrol/2.0L Diesel",
+            fuelType: "Petrol/Diesel",
+            seats: 7,
+            price: "₹13,95,000",
+            safetyRating: "4 Star",
             transmission: "Manual/CVT",
             groundClearance: "192mm",
             bootSpace: "587L",
             fuelTankCapacity: "60L",
             powerSteering: "Yes",
             powerWindows: "Yes",
-            airConditioning: "Dual Zone",
+            airConditioning: "Automatic",
             musicSystem: "Yes",
             images: [
-                "https://images.unsplash.com/photo-1566473965997-3de9c817e938?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                "https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                "https://images.unsplash.com/photo-1558618666-fcde9ab21d41?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/hector-exterior-right-front-three-quarter-2.jpeg",
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/hector-exterior-left-side-view-2.jpeg",
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/hector-exterior-rear-view-2.jpeg",
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/hector-interior-dashboard-2.jpeg"
             ],
-            features: ["AI Assistant", "Panoramic Sunroof", "360° Camera", "Wireless Charging", "6 Airbags", "iSMART Connected Features", "Premium Audio"]
+            features: ["i-SMART Connected Car", "Panoramic Sunroof", "360° Camera", "Wireless Charging", "Voice Commands", "Over-the-air Updates", "Smart Pure Air Purifier"]
         },
         "ZS EV": {
-            mileage: "419 km range",
+            mileage: "461 km/charge",
             engineCapacity: "Electric Motor",
             fuelType: "Electric",
             seats: 5,
             price: "₹21,99,000",
-            safetyRating: "5 Star",
-            transmission: "Automatic",
-            groundClearance: "161mm",
-            bootSpace: "448L",
-            fuelTankCapacity: "44.5 kWh Battery",
+            safetyRating: "4 Star",
+            transmission: "Single Speed",
+            groundClearance: "150mm",
+            bootSpace: "470L",
+            fuelTankCapacity: "50.3 kWh",
             powerSteering: "Yes",
             powerWindows: "Yes",
             airConditioning: "Automatic",
             musicSystem: "Yes",
             images: [
-                "https://images.unsplash.com/photo-1593941707882-a5bac6861d75?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                "https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                "https://images.unsplash.com/photo-1558618666-fcde9ab21d41?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/zs-ev-exterior-right-front-three-quarter-2.jpeg",
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/zs-ev-exterior-left-side-view-2.jpeg",
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/zs-ev-exterior-rear-view-2.jpeg",
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/zs-ev-interior-dashboard-2.jpeg"
             ],
-            features: ["419km Range", "Fast Charging", "Connected Features", "Panoramic Sunroof", "6 Airbags", "PM2.5 Filter", "Wireless Charging"]
+            features: ["i-SMART EV", "Fast Charging", "Regenerative Braking", "Connected Car Tech", "Voice Commands", "Over-the-air Updates", "Eco Mode"]
         },
         "Astor": {
             mileage: "16 kmpl",
@@ -681,6 +681,179 @@ const carData = {
                 "https://images.unsplash.com/photo-1586479767456-93e7276ae8a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
             ],
             features: ["TSI Engine", "Virtual Cockpit", "Sunroof", "6 Airbags", "MySkoda Connect", "Wireless Charging", "Ventilated Seats"]
+        }
+    },
+    "Toyota": {
+        "Innova Crysta": {
+            mileage: "15 kmpl",
+            engineCapacity: "2.4L Diesel/2.7L Petrol",
+            fuelType: "Petrol/Diesel",
+            seats: 7,
+            price: "₹18,55,000",
+            safetyRating: "4 Star",
+            transmission: "Manual/AT",
+            groundClearance: "176mm",
+            bootSpace: "300L",
+            fuelTankCapacity: "55L",
+            powerSteering: "Yes",
+            powerWindows: "Yes",
+            airConditioning: "Automatic",
+            musicSystem: "Yes",
+            images: [
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/innova-crysta-exterior-right-front-three-quarter-2.jpeg",
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/innova-crysta-exterior-left-side-view-2.jpeg",
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/innova-crysta-exterior-rear-view-2.jpeg",
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/innova-crysta-interior-dashboard-2.jpeg"
+            ],
+            features: ["Toyota Safety Sense", "360° Camera", "Cruise Control", "Auto Headlamps", "Rain Sensing Wipers", "Connected Car Tech", "Voice Commands"]
+        },
+        "Fortuner": {
+            mileage: "10 kmpl",
+            engineCapacity: "2.8L Diesel/4.0L Petrol",
+            fuelType: "Petrol/Diesel",
+            seats: 7,
+            price: "₹32,40,000",
+            safetyRating: "5 Star",
+            transmission: "Manual/AT",
+            groundClearance: 220,
+            bootSpace: "296L",
+            fuelTankCapacity: "80L",
+            powerSteering: "Yes",
+            powerWindows: "Yes",
+            airConditioning: "Automatic",
+            musicSystem: "Yes",
+            images: [
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/fortuner-exterior-right-front-three-quarter-2.jpeg",
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/fortuner-exterior-left-side-view-2.jpeg",
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/fortuner-exterior-rear-view-2.jpeg",
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/fortuner-interior-dashboard-2.jpeg"
+            ],
+            features: ["Toyota Safety Sense", "4x4", "Differential Lock", "Hill Descent Control", "360° Camera", "Connected Car Tech", "Voice Commands"]
+        }
+    },
+    "Ford": {
+        "EcoSport": {
+            mileage: "16 kmpl",
+            engineCapacity: "1.5L Petrol/1.5L Diesel",
+            fuelType: "Petrol/Diesel",
+            seats: 5,
+            price: "₹8,19,000",
+            safetyRating: "4 Star",
+            transmission: "Manual/AT",
+            groundClearance: "200mm",
+            bootSpace: "352L",
+            fuelTankCapacity: "52L",
+            powerSteering: "Yes",
+            powerWindows: "Yes",
+            airConditioning: "Automatic",
+            musicSystem: "Yes",
+            images: [
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/ecosport-exterior-right-front-three-quarter-2.jpeg",
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/ecosport-exterior-left-side-view-2.jpeg",
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/ecosport-exterior-rear-view-2.jpeg",
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/ecosport-interior-dashboard-2.jpeg"
+            ],
+            features: ["FordPass Connect", "SYNC 3 Infotainment", "Voice Commands", "Connected Car Tech", "Over-the-air Updates", "Eco Mode", "Cruise Control"]
+        }
+    },
+    "Nissan": {
+        "Magnite": {
+            mileage: "18 kmpl",
+            engineCapacity: "1.0L Turbo Petrol",
+            fuelType: "Petrol",
+            seats: 5,
+            price: "₹5,99,000",
+            safetyRating: "4 Star",
+            transmission: "Manual/CVT",
+            groundClearance: "205mm",
+            bootSpace: "336L",
+            fuelTankCapacity: "40L",
+            powerSteering: "Yes",
+            powerWindows: "Yes",
+            airConditioning: "Manual",
+            musicSystem: "Yes",
+            images: [
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/magnite-exterior-right-front-three-quarter-2.jpeg",
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/magnite-exterior-left-side-view-2.jpeg",
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/magnite-exterior-rear-view-2.jpeg",
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/magnite-interior-dashboard-2.jpeg"
+            ],
+            features: ["NissanConnect", "360° Camera", "Wireless Charging", "Connected Car Tech", "Voice Commands", "Over-the-air Updates", "Eco Mode"]
+        }
+    },
+    "Volvo": {
+        "XC60": {
+            mileage: "12 kmpl",
+            engineCapacity: "2.0L Petrol/Diesel",
+            fuelType: "Petrol/Diesel",
+            seats: 5,
+            price: "₹65,90,000",
+            safetyRating: "5 Star",
+            transmission: "AT",
+            groundClearance: "216mm",
+            bootSpace: "505L",
+            fuelTankCapacity: "71L",
+            powerSteering: "Yes",
+            powerWindows: "Yes",
+            airConditioning: "Automatic",
+            musicSystem: "Yes",
+            images: [
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/xc60-exterior-right-front-three-quarter-2.jpeg",
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/xc60-exterior-left-side-view-2.jpeg",
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/xc60-exterior-rear-view-2.jpeg",
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/xc60-interior-dashboard-2.jpeg"
+            ],
+            features: ["Pilot Assist", "City Safety", "360° Camera", "Bowers & Wilkins Sound", "Connected Car Tech", "Over-the-air Updates", "Eco Mode"]
+        }
+    },
+    "Renault": {
+        "Kiger": {
+            mileage: "18 kmpl",
+            engineCapacity: "1.0L Turbo Petrol",
+            fuelType: "Petrol",
+            seats: 5,
+            price: "₹5,99,000",
+            safetyRating: "4 Star",
+            transmission: "Manual/CVT",
+            groundClearance: "205mm",
+            bootSpace: "405L",
+            fuelTankCapacity: "40L",
+            powerSteering: "Yes",
+            powerWindows: "Yes",
+            airConditioning: "Manual",
+            musicSystem: "Yes",
+            images: [
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/kiger-exterior-right-front-three-quarter-2.jpeg",
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/kiger-exterior-left-side-view-2.jpeg",
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/kiger-exterior-rear-view-2.jpeg",
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/kiger-interior-dashboard-2.jpeg"
+            ],
+            features: ["Renault Connect", "360° Camera", "Wireless Charging", "Connected Car Tech", "Voice Commands", "Over-the-air Updates", "Eco Mode"]
+        }
+    },
+    "Rolls Royce": {
+        "Phantom": {
+            mileage: "8 kmpl",
+            engineCapacity: "6.75L V12",
+            fuelType: "Petrol",
+            seats: 4,
+            price: "₹9,50,00,000",
+            safetyRating: "5 Star",
+            transmission: "AT",
+            groundClearance: "150mm",
+            bootSpace: "460L",
+            fuelTankCapacity: "100L",
+            powerSteering: "Yes",
+            powerWindows: "Yes",
+            airConditioning: "Automatic",
+            musicSystem: "Yes",
+            images: [
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/phantom-exterior-right-front-three-quarter-2.jpeg",
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/phantom-exterior-left-side-view-2.jpeg",
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/phantom-exterior-rear-view-2.jpeg",
+                "https://imgd.aeplcdn.com/664x374/n/cw/ec/102125/phantom-interior-dashboard-2.jpeg"
+            ],
+            features: ["Bespoke Audio", "Starlight Headliner", "Champagne Cooler", "Connected Car Tech", "Voice Commands", "Over-the-air Updates", "Luxury Mode"]
         }
     }
 };

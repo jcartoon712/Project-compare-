@@ -1813,6 +1813,123 @@ body {
     font-size: 1rem;
 }
 
+/* Message Popup System */
+.message-popup {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10000;
+    max-width: 400px;
+    animation: slideInRight 0.3s ease-out;
+}
+
+.message-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+}
+
+.message-popup.success .message-content {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: white;
+}
+
+.message-popup.error .message-content {
+    background: linear-gradient(135deg, #f44336, #d32f2f);
+    color: white;
+}
+
+.message-popup.warning .message-content {
+    background: linear-gradient(135deg, #ff9800, #f57c00);
+    color: white;
+}
+
+.message-popup.info .message-content {
+    background: linear-gradient(135deg, #2196F3, #1976D2);
+    color: white;
+}
+
+.message-icon {
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.message-text {
+    flex: 1;
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.message-close {
+    background: none;
+    border: none;
+    color: inherit;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+    flex-shrink: 0;
+}
+
+.message-close:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+.message-popup.removing {
+    animation: slideOutRight 0.3s ease-in;
+}
+
+/* Enhanced Google Sign-In Button */
+.google-login-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.google-login-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.google-login-btn:disabled:hover {
+    transform: none;
+    box-shadow: none;
+}
+
 /* Loading spinner for Google login */
 .login-spinner {
     width: 20px;

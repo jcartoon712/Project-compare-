@@ -2,6 +2,10 @@
 let car1Data = null;
 let car2Data = null;
 
+// User authentication system
+let users = JSON.parse(localStorage.getItem('users')) || [];
+let currentUser = JSON.parse(localStorage.getItem('currentUser')) || null;
+
 // Initialize the application
 document.addEventListener('DOMContentLoaded', function() {
     const currentPage = window.location.pathname.split('/').pop();
@@ -15,6 +19,39 @@ document.addEventListener('DOMContentLoaded', function() {
     } else if (currentPage === 'home.html') {
         initializeSlideshow();
     }
+
+    // Add event listeners for forms
+    const loginForm = document.querySelector('#loginForm form');
+    const createAccountForm = document.querySelector('#createAccountForm form');
+    const forgotPasswordForm = document.querySelector('#forgotPasswordForm form');
+    
+    if (loginForm) {
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            login();
+        });
+    }
+    
+    if (createAccountForm) {
+        createAccountForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            register();
+        });
+    }
+    
+    if (forgotPasswordForm) {
+        forgotPasswordForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            resetPassword();
+        });
+    }
+    
+    // Load Google Sign-In API
+    const script = document.createElement('script');
+    script.src = 'https://accounts.google.com/gsi/client';
+    script.async = true;
+    script.defer = true;
+    document.head.appendChild(script);
 });
 
 // Initialize compare page
@@ -512,26 +549,195 @@ function toggleFavourite(brand, model, button) {
 
 // Login functions
 function login() {
-    // Simple validation - in real app, use proper authentication
-    window.location.href = 'home.html';
+    const email = document.querySelector('#loginForm input[type="email"]').value;
+    const password = document.querySelector('#loginForm input[type="password"]').value;
+    
+    if (!email || !password) {
+        showMessage('Please enter both email and password', 'error');
+        return false;
+    }
+    
+    const user = users.find(u => u.email === email && u.password === password);
+    
+    if (user) {
+        currentUser = user;
+        localStorage.setItem('currentUser', JSON.stringify(user));
+        showMessage('Login successful! Redirecting...', 'success');
+        setTimeout(() => {
+            window.location.href = 'home.html';
+        }, 1500);
+    } else {
+        showMessage('Invalid email or password', 'error');
+    }
+    
     return false; // Prevent form submission
 }
 
+function register() {
+    const name = document.querySelector('#createAccountForm input[type="text"]').value;
+    const email = document.querySelector('#createAccountForm input[type="email"]').value;
+    const password = document.querySelector('#createAccountForm input[type="password"]').value;
+    const confirmPassword = document.querySelector('#createAccountForm input[type="password"]:last-of-type').value;
+    
+    if (!name || !email || !password || !confirmPassword) {
+        showMessage('Please fill in all fields', 'error');
+        return false;
+    }
+    
+    if (password !== confirmPassword) {
+        showMessage('Passwords do not match', 'error');
+        return false;
+    }
+    
+    if (password.length < 6) {
+        showMessage('Password must be at least 6 characters long', 'error');
+        return false;
+    }
+    
+    // Check if email already exists
+    if (users.find(u => u.email === email)) {
+        showMessage('Email is already registered', 'error');
+        return false;
+    }
+    
+    // Create new user
+    const newUser = {
+        id: Date.now(),
+        name: name,
+        email: email,
+        password: password,
+        createdAt: new Date().toISOString()
+    };
+    
+    users.push(newUser);
+    localStorage.setItem('users', JSON.stringify(users));
+    
+    showMessage('Account created successfully! Please login.', 'success');
+    setTimeout(() => {
+        showLogin();
+    }, 2000);
+    
+    return false;
+}
+
 function loginWithGoogle() {
-    // Google OAuth integration would go here
-    // For demo purposes, simulate Google login
-    console.log('Google login initiated...');
+    // Initialize Google OAuth
+    if (typeof google !== 'undefined' && google.accounts) {
+        google.accounts.id.initialize({
+            client_id: 'YOUR_GOOGLE_CLIENT_ID', // Replace with actual Google Client ID
+            callback: handleGoogleSignIn
+        });
+        
+        google.accounts.id.prompt((notification) => {
+            if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
+                // Fallback for when Google Sign-In is not available
+                showMessage('Google Sign-In not available. Please use email/password login.', 'warning');
+            }
+        });
+    } else {
+        // Fallback implementation
+        showMessage('Google Sign-In is loading...', 'info');
+        setTimeout(() => {
+            // Simulate Google login for demo
+            const demoUser = {
+                id: 'google_' + Date.now(),
+                name: 'Google User',
+                email: 'user@gmail.com',
+                picture: 'https://via.placeholder.com/50', // Placeholder for Google profile pic
+                isGoogleUser: true,
+                createdAt: new Date().toISOString()
+            };
+            
+            currentUser = demoUser;
+            localStorage.setItem('currentUser', JSON.stringify(demoUser));
+            showMessage('Google login successful! Redirecting...', 'success');
+            setTimeout(() => {
+                window.location.href = 'home.html';
+            }, 1500);
+        }, 2000);
+    }
+}
+
+function handleGoogleSignIn(response) {
+    // Decode the JWT token
+    const responsePayload = decodeJwtResponse(response.credential);
     
-    // Show loading state
-    const googleBtn = document.querySelector('.google-login-btn');
-    const originalContent = googleBtn.innerHTML;
-    googleBtn.innerHTML = '<div class="login-spinner"></div><span>Signing in...</span>';
-    googleBtn.disabled = true;
+    const googleUser = {
+        id: 'google_' + responsePayload.sub,
+        name: responsePayload.name,
+        email: responsePayload.email,
+        picture: responsePayload.picture,
+        isGoogleUser: true,
+        createdAt: new Date().toISOString()
+    };
     
-    // Simulate login process
+    // Check if user already exists
+    const existingUser = users.find(u => u.email === googleUser.email);
+    if (!existingUser) {
+        users.push(googleUser);
+        localStorage.setItem('users', JSON.stringify(users));
+    }
+    
+    currentUser = googleUser;
+    localStorage.setItem('currentUser', JSON.stringify(googleUser));
+    
+    showMessage('Google login successful! Redirecting...', 'success');
     setTimeout(() => {
         window.location.href = 'home.html';
-    }, 2000);
+    }, 1500);
+}
+
+function decodeJwtResponse(token) {
+    const base64Url = token.split('.')[1];
+    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+    return JSON.parse(jsonPayload);
+}
+
+function logout() {
+    currentUser = null;
+    localStorage.removeItem('currentUser');
+    window.location.href = 'login.html';
+}
+
+function showMessage(message, type = 'info') {
+    // Remove existing message
+    const existingMessage = document.querySelector('.message-popup');
+    if (existingMessage) {
+        existingMessage.remove();
+    }
+    
+    // Create message element
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `message-popup ${type}`;
+    messageDiv.innerHTML = `
+        <div class="message-content">
+            <span class="message-icon">${getMessageIcon(type)}</span>
+            <span class="message-text">${message}</span>
+            <button class="message-close" onclick="this.parentElement.parentElement.remove()">×</button>
+        </div>
+    `;
+    
+    document.body.appendChild(messageDiv);
+    
+    // Auto remove after 5 seconds
+    setTimeout(() => {
+        if (messageDiv.parentElement) {
+            messageDiv.remove();
+        }
+    }, 5000);
+}
+
+function getMessageIcon(type) {
+    switch(type) {
+        case 'success': return '✅';
+        case 'error': return '❌';
+        case 'warning': return '⚠️';
+        case 'info': return 'ℹ️';
+        default: return 'ℹ️';
+    }
 }
 
 function showForgotPassword() {
@@ -550,6 +756,34 @@ function showLogin() {
     document.getElementById('loginForm').style.display = 'block';
     document.getElementById('forgotPasswordForm').style.display = 'none';
     document.getElementById('createAccountForm').style.display = 'none';
+}
+
+function resetPassword() {
+    const email = document.querySelector('#forgotPasswordForm input[type="email"]').value;
+    
+    if (!email) {
+        showMessage('Please enter your email address', 'error');
+        return false;
+    }
+    
+    const user = users.find(u => u.email === email);
+    if (user) {
+        showMessage('Password reset link sent to your email!', 'success');
+        setTimeout(() => {
+            showLogin();
+        }, 2000);
+    } else {
+        showMessage('Email not found. Please check your email address.', 'error');
+    }
+    
+    return false;
+}
+
+// Check authentication status
+function checkAuth() {
+    if (!currentUser && window.location.pathname !== '/login.html' && window.location.pathname !== '/index.html') {
+        window.location.href = 'login.html';
+    }
 }
 
 // Initialize slideshow for home page
