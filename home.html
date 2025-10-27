@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Compare - Home</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <img src="https://via.placeholder.com/60x60/FF6B35/FFFFFF?text=AC" alt="Auto Compare Logo" class="logo">
+            <h1>Auto Compare</h1>
+        </div>
+        <nav class="navigation">
+            <a href="home.html" class="nav-link active">Home</a>
+            <a href="compare.html" class="nav-link">Compare</a>
+            <a href="favourites.html" class="nav-link">Favourites</a>
+            <a href="feedback.html" class="nav-link">Feedback</a>
+            <a href="login.html" class="nav-link logout">Logout</a>
+        </nav>
+    </header>
+
+    <main class="home-main">
+        <div class="slideshow-container">
+            <div class="slide active">
+                <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Car 1">
+                <div class="slide-content">
+                    <h2>Welcome to Auto Compare</h2>
+                    <p>Compare cars by mileage, engine capacity, fuel type, seats, price, and more features</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Car 2">
+                <div class="slide-content">
+                    <h2>Find Your Perfect Car</h2>
+                    <p>Make informed decisions with detailed car comparisons</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Car 3">
+                <div class="slide-content">
+                    <h2>Smart Car Shopping</h2>
+                    <p>Compare specifications, features, and prices side by side</p>
+                </div>
+            </div>
+            
+            <button class="slide-nav prev" onclick="changeSlide(-1)">&#10094;</button>
+            <button class="slide-nav next" onclick="changeSlide(1)">&#10095;</button>
+        </div>
+
+        <div class="features-section">
+            <h2>Why Choose Auto Compare?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Comprehensive Comparison</h3>
+                    <p>Compare mileage, engine capacity, fuel type, seats, price, and all important features</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Wide Range of Cars</h3>
+                    <p>From budget-friendly to luxury cars, find and compare all brands and models</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Save Favourites</h3>
+                    <p>Save your favorite cars for easy access and comparison later</p>
+                </div>
+                <div class="feature-card">
+                    <h3>User Friendly</h3>
+                    <p>Easy-to-use interface with detailed specifications and clear comparisons</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

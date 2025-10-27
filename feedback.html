@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Compare - Feedback</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <img src="https://via.placeholder.com/60x60/FF6B35/FFFFFF?text=AC" alt="Auto Compare Logo" class="logo">
+            <h1>Auto Compare</h1>
+        </div>
+        <nav class="navigation">
+            <a href="home.html" class="nav-link">Home</a>
+            <a href="compare.html" class="nav-link">Compare</a>
+            <a href="favourites.html" class="nav-link">Favourites</a>
+            <a href="feedback.html" class="nav-link active">Feedback</a>
+            <a href="login.html" class="nav-link logout">Logout</a>
+        </nav>
+    </header>
+
+    <main class="feedback-main">
+        <h2>We Value Your Feedback</h2>
+        
+        <div class="feedback-container">
+            <form id="feedbackForm" class="feedback-form">
+                <div class="form-group">
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Your Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Is our website useful?</label>
+                    <div class="radio-group">
+                        <input type="radio" id="useful-yes" name="useful" value="yes" required>
+                        <label for="useful-yes">Yes</label>
+                        <input type="radio" id="useful-no" name="useful" value="no" required>
+                        <label for="useful-no">No</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Rate our website:</label>
+                    <div class="rating-container">
+                        <div class="star-rating">
+                            <span class="star" data-rating="1">★</span>
+                            <span class="star" data-rating="2">★</span>
+                            <span class="star" data-rating="3">★</span>
+                            <span class="star" data-rating="4">★</span>
+                            <span class="star" data-rating="5">★</span>
+                        </div>
+                        <span id="ratingText">No rating selected</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="comments">Tell us about our website:</label>
+                    <textarea id="comments" name="comments" rows="6" placeholder="Share your thoughts, suggestions, or any issues you encountered..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit Feedback</button>
+            </form>
+        </div>
+
+        <div id="thankYouMessage" class="thank-you-message" style="display: none;">
+            <h3>Thank you for your feedback!</h3>
+            <p>Your feedback has been submitted successfully.</p>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

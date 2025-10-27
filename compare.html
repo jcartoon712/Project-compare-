@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Compare - Compare Cars</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <img src="https://via.placeholder.com/60x60/FF6B35/FFFFFF?text=AC" alt="Auto Compare Logo" class="logo">
+            <h1>Auto Compare</h1>
+        </div>
+        <nav class="navigation">
+            <a href="home.html" class="nav-link">Home</a>
+            <a href="compare.html" class="nav-link active">Compare</a>
+            <a href="favourites.html" class="nav-link">Favourites</a>
+            <a href="feedback.html" class="nav-link">Feedback</a>
+            <a href="login.html" class="nav-link logout">Logout</a>
+        </nav>
+    </header>
+
+    <main class="compare-main">
+        <div class="compare-header">
+            <h2>Professional Car Comparison</h2>
+            <p class="compare-subtitle">Compare cars across all features to make the perfect choice</p>
+        </div>
+
+        <div class="compare-container">
+            <div class="car-selection" id="car1">
+                <div class="selection-header">
+                    <h3><span class="car-number">1</span>Select First Car</h3>
+                </div>
+                
+                <div class="selection-controls">
+                    <div class="dropdown-container">
+                        <label for="brand1">
+                            <span class="label-icon">🏢</span>Brand
+                        </label>
+                        <select id="brand1" onchange="updateModels(1)" class="professional-select">
+                            <option value="">Choose Brand</option>
+                        </select>
+                    </div>
+                    
+                    <div class="dropdown-container">
+                        <label for="model1">
+                            <span class="label-icon">🚗</span>Model
+                        </label>
+                        <select id="model1" onchange="displayCarDetails(1)" class="professional-select" disabled>
+                            <option value="">Choose Model</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div id="carDisplay1" class="car-display">
+                    <div class="empty-state">
+                        <div class="empty-icon">🚗</div>
+                        <p>Select a car to view detailed specifications</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="vs-divider">
+                <div class="vs-circle">
+                    <span>VS</span>
+                </div>
+                <div class="vs-line"></div>
+            </div>
+
+            <div class="car-selection" id="car2">
+                <div class="selection-header">
+                    <h3><span class="car-number">2</span>Select Second Car</h3>
+                </div>
+                
+                <div class="selection-controls">
+                    <div class="dropdown-container">
+                        <label for="brand2">
+                            <span class="label-icon">🏢</span>Brand
+                        </label>
+                        <select id="brand2" onchange="updateModels(2)" class="professional-select">
+                            <option value="">Choose Brand</option>
+                        </select>
+                    </div>
+                    
+                    <div class="dropdown-container">
+                        <label for="model2">
+                            <span class="label-icon">🚗</span>Model
+                        </label>
+                        <select id="model2" onchange="displayCarDetails(2)" class="professional-select" disabled>
+                            <option value="">Choose Model</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div id="carDisplay2" class="car-display">
+                    <div class="empty-state">
+                        <div class="empty-icon">🚗</div>
+                        <p>Select a car to view detailed specifications</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="comparisonResult" class="comparison-result" style="display: none;">
+            <div class="comparison-header">
+                <h3>📊 Detailed Comparison Results</h3>
+                <p>Comprehensive analysis of all features and specifications</p>
+            </div>
+            
+            <div class="comparison-content">
+                <div class="comparison-summary">
+                    <div class="summary-card winner" id="winnerCard" style="display: none;">
+                        <div class="summary-icon">🏆</div>
+                        <h4>Overall Winner</h4>
+                        <p id="winnerText"></p>
+                    </div>
+                </div>
+
+                <div class="comparison-table-container">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th class="feature-column">Feature</th>
+                                <th id="car1Name" class="car-column">Car 1</th>
+                                <th id="car2Name" class="car-column">Car 2</th>
+                            </tr>
+                        </thead>
+                        <tbody id="comparisonTableBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="carData.js"></script>
+</body>
+</html>
